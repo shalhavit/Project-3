@@ -225,7 +225,7 @@ sixths, deciding that .tempo should be one half .artist and one-third title */
 .title  { width: calc( (100% - (5em + 1em)) * 3/7); }
 .tempo  { width: calc( (100% - (5em + 1em)) * 1/7); }
 .energy { width: calc( (100% - (5em + 1em)) * 1/7); }
-.length { width: calc( (100% - (5em + 1em)) * 1/7); }
+
 
 .cell:after { font-size: 0.5em; }
 .cell.null:after { content: ''; }

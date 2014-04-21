@@ -15,7 +15,7 @@ var tracks = [];
 
 // (1) We're going to construct our search using Spotify's API, in our case
 // searching for Kanye West and limiting our results to 10 tracks
-var search = 'Kanye West';
+var search = 'crystal castles';
 var maxTracks = 10;
 
 
@@ -128,7 +128,8 @@ function rowAttrsFromTrack(track) {
         // more about it at:
         // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
         'data-tempo': track.echo ? track.echo.audio_summary.tempo : -1,
-        'data-length': track.echo ? track.echo.audio_summary.duration : -1
+         'data-energy': track.echo ? track.echo.audio_summary.energy : -1 // part#1 energy as new attribute from echo nest data
+
     };
 
     return attrs;
@@ -186,7 +187,8 @@ function cellsFromTrackAndAttrs(track, attrs) {
         ], // otherwise, display it as '-'
         ['length', attrs['data-length'] > 0 ? // if we have a number
             Math.round(attrs['data-length']) : // round it
-            '-'
+            '-'],
+       ['energy', attrs['data-energy'] > 0 ? attrs['data-energy'] : '-' //part#1 adding tempo attribute
         ] // otherwise, display it as '-'
     ];
 
